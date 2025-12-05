@@ -1,0 +1,290 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-bg: #fdfbf9;
+    --secondary-bg: #ffffff;
+    --accent: #ffd4e5;
+    --text-primary: #2d2d2d;
+    --text-secondary: #6b6b6b;
+    --card-hover: #fff5f8;
+    --pastel-pink: #ffd4e5;
+    --pastel-blue: #d4e4ff;
+    --pastel-lavender: #e8d4ff;
+    --pastel-mint: #d4ffe8;
+    --pastel-peach: #ffe8d4;
+    --pastel-yellow: #fff9d4;
+    --transition: 0.3s ease;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #fdfbf9 0%, #fff5f8 100%);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 4rem 0 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid rgba(255, 212, 229, 0.3);
+}
+
+header h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #ff9eb3 0%, #b39ddb 50%, #81d4fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+/* Diary Grid */
+.diary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.diary-card {
+    background: var(--secondary-bg);
+    border: 2px solid rgba(255, 212, 229, 0.4);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255, 212, 229, 0.15);
+}
+
+.diary-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--pastel-pink) 0%, var(--pastel-lavender) 50%, var(--pastel-blue) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+}
+
+.diary-card:hover {
+    background: var(--card-hover);
+    border-color: rgba(255, 212, 229, 0.8);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(255, 212, 229, 0.3);
+}
+
+.diary-card:hover::before {
+    transform: scaleX(1);
+}
+
+.card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.card-number {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    padding: 0.25rem 0.75rem;
+    background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-lavender));
+    border-radius: 12px;
+    color: #fff;
+}
+
+.diary-card h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.diary-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 2px solid rgba(255, 212, 229, 0.3);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Documentation Page Styles */
+.doc-page {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    transition: color var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    background: rgba(255, 212, 229, 0.1);
+}
+
+.back-link:hover {
+    color: var(--text-primary);
+    background: rgba(255, 212, 229, 0.2);
+}
+
+.back-link::before {
+    content: '←';
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.doc-page h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.doc-page .meta {
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    font-size: 0.95rem;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    margin: 2rem 0;
+    background: #f8f8f8;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 212, 229, 0.3);
+}
+
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.content-section {
+    margin-bottom: 3rem;
+}
+
+.content-section h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.content-section p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+/* Image Gallery */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 16px;
+    transition: transform var(--transition);
+    border: 2px solid rgba(255, 212, 229, 0.3);
+}
+
+.image-gallery img:hover {
+    transform: scale(1.03);
+    border-color: rgba(255, 212, 229, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .diary-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .diary-card {
+        padding: 2rem;
+    }
+
+    .doc-page h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 2rem 0 2rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .diary-card h2 {
+        font-size: 1.3rem;
+    }
+}
